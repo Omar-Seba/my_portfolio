@@ -15,17 +15,16 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="en">
       <body>
         <header className="flex justify-center">
-          <nav className="flex items-center justify-between flex-grow h-24 max-w-screen-xl px-6 text-white ">
-            <div className="flex items-center">
+          <nav className="flex flex-grow justify-between items-center px-6 max-w-screen-xl h-24 text-white">
+            <div className="flex items-center text-base">
               <Image src="/Logomark.png" alt="Logo" width={44} height={44} />
-              <span className="ml-2 text-xl font-semibold">Layers</span>
+              <span className="ml-2 font-semibold text-xl">Layers</span>
             </div>
-            <div>
-
-              <button className="">home</button>
-              <button className="">about</button>
-              <button className="">project</button>
-              <button className="">contact</button>
+            <div className="inline-flex gap-8 border-[#232323] py-1 border rounded-[80px]">
+              <button className="flex justify-center items-center py-4 w-40 shrink-0">home</button>
+              <button className="flex justify-center items-center py-4 w-40 shrink-0">about</button>
+              <button className="flex justify-center items-center py-4 w-40 shrink-0">project</button>
+              <button className="flex justify-center items-center py-4 w-40 shrink-0">contact</button>
             </div>
             <div>
               <button className="">dribble</button>
