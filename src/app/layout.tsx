@@ -10,6 +10,16 @@ export const metadata: Metadata = {
 };
 
 
+
+const Button: React.FC<{ text: string }> = ({ text }) => {
+  return (
+    <button className="flex justify-center items-center py-4 w-40 shrink-0">
+      {text}
+    </button>
+  );
+};
+
+
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
@@ -21,10 +31,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <span className="ml-2 font-semibold text-xl">Layers</span>
             </div>
             <div className="inline-flex gap-8 border-[#232323] py-1 border rounded-[80px]">
-              <button className="flex justify-center items-center py-4 w-40 shrink-0">home</button>
-              <button className="flex justify-center items-center py-4 w-40 shrink-0">about</button>
-              <button className="flex justify-center items-center py-4 w-40 shrink-0">project</button>
-              <button className="flex justify-center items-center py-4 w-40 shrink-0">contact</button>
+              <Button text="home" />
+              <Button text="about" />
+              <Button text="project" />
+              <Button text="contact" />
             </div>
             <div>
               <button className="">dribble</button>
