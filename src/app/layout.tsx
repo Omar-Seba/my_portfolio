@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import NavLink from "@/components/NavLink";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -10,11 +11,10 @@ export const metadata: Metadata = {
 };
 
 
-
-const Button: React.FC<{ text: string }> = ({ text }) => {
+const Button: React.FC<{ text: string, href: string }> = ({ text, href }) => {
   return (
-    <button className="flex justify-center items-center py-4 w-40 shrink-0">
-      {text}
+    <button className="flex justify-center items-center h-[48px] hover:bg-sky-300 py-4 w-[158px] rounded-[80px] border">
+      <NavLink href={href} label={text} />
     </button>
   );
 };
@@ -26,15 +26,15 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <body>
         <header className="flex justify-center">
           <nav className="flex flex-grow justify-between items-center px-6 max-w-screen-xl h-24 text-white">
-            <div className="flex items-center text-base">
+            <div className="flex items-center h-[48px] text-base ">
               <Image src="/Logomark.png" alt="Logo" width={44} height={44} />
               <span className="ml-2 font-semibold text-xl">Layers</span>
             </div>
-            <div className="inline-flex gap-8 border-[#232323] py-1 border rounded-[80px]">
-              <Button text="home" />
-              <Button text="about" />
-              <Button text="project" />
-              <Button text="contact" />
+            <div className="inline-flex gap-8 border-[#232323] py-2 border rounded-[80px]">
+              <Button text="home" href="/" />
+              <Button text="about" href="/about" />
+              <Button text="project" href="/project" />
+              <Button text="contact" href="/contact" />
             </div>
             <div>
               <button className="">dribble</button>
