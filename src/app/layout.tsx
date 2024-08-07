@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
-import NavLink, { Button } from "@/components/NavLink";
+import { NavButton } from "@/components/NavLink";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,26 +16,31 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <body>
         <header className="flex justify-center">
           <nav className="flex flex-grow justify-between items-center px-6 max-w-screen-xl h-24 text-white">
-            <div className="flex items-center h-[48px] text-base ">
-              <Image src="/Logomark.png" alt="Logo" width={44} height={44} />
-              <span className="ml-2 font-semibold text-xl">Layers</span>
+            <div className="flex items-center h-[48px] text-base">
+              <Image src="/LogO.png" alt="Logo" width={160} height={140} />
             </div>
-            <div className="inline-flex gap-8  p-1  rounded-[80px]">
-              <Button text="home" href="/" />
-              <Button text="about" href="/about" />
-              <Button text="project" href="/project" />
-              <Button text="contact" href="/contact" />
+
+            <div className="inline-flex gap-8 border-0 hover:border-y-1 hover:border-cyan-200 p-1 hover:border-opacity-30">
+              <NavButton text="home" href="/" />
+              <NavButton text="about" href="/about" disable />
+              <NavButton text="project" href="/project" disable />
+              <NavButton text="contact" href="/contact" disable />
             </div>
-            <div>
-              <button className="">dribble</button>
-              <button className="">facebook</button>
-              <button className="">instagram</button>
+
+            <div className="flex gap-3">
+              <a href="https://www.flickr.com/photos/163941199@N02/">
+                <Image src="/social/flickr.svg" alt="search" width={20} height={20} />
+              </a>
+
+              <a href="https://www.instagram.com/mr.slikesauto/">
+                <Image src="/social/instagram.svg" alt="search" width={20} height={20} />
+              </a>
             </div>
           </nav>
         </header>
         <main>{children}</main>
         <footer>
-          <p>&copy; 2024 My Next.js App</p>
+          <p>&copy; 2024 Mr.Slikes</p>
         </footer>
       </body>
     </html>
