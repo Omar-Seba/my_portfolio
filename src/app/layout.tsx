@@ -20,7 +20,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <header className="flex justify-center">
           <nav className="flex flex-grow justify-between items-center px-2 max-lg:px-8 max-w-screen-xl h-24 text-white">
             <div className="flex items-center h-[48px] text-base">
-              <Image src="/LogO.png" alt="Logo" width={160} height={140} />
+              <Image src="/LOGo.png" alt="Logo" width={160} height={140} />
             </div>
             <div className="max-lg:hidden">
 
