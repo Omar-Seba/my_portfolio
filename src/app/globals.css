@@ -25,14 +25,6 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-.bgMain {
-  background-image: url("../assets/bgMain.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .effeilBG{
   background-image: url("../assets/effeil_wide.png");
   background-size: cover;
