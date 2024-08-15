@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
-import { NavButton } from "@/components/NavLink";
+import { NavBar, NavButton } from "@/components/NavLink";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -13,18 +13,18 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
-      <body>
+      <body
+        className="from-blue-900 to-Fuchsia-900 bg-cover bg-center h-screen overflow-hidden"
+        style={{ backgroundImage: "url('/effeil_wide.png')" }}
+      >
         <header className="flex justify-center">
-          <nav className="flex flex-grow justify-between items-center px-6 max-w-screen-xl h-24 text-white">
+          <nav className="flex flex-grow justify-between items-center px-2 max-lg:px-8 max-w-screen-xl h-24 text-white">
             <div className="flex items-center h-[48px] text-base">
               <Image src="/LogO.png" alt="Logo" width={160} height={140} />
             </div>
+            <div className="max-lg:hidden">
 
-            <div className="inline-flex gap-8 border-0 hover:border-y-1 hover:border-cyan-200 p-1 hover:border-opacity-30">
-              <NavButton text="home" href="/" />
-              <NavButton text="about" href="/about" disable />
-              <NavButton text="project" href="/project" disable />
-              <NavButton text="contact" href="/contact" disable />
+              <NavBar />
             </div>
 
             <div className="flex gap-3">

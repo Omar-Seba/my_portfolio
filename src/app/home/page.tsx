@@ -1,4 +1,6 @@
 'use client'
+import Journaling from "@/components/Journaling";
+import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 
@@ -31,8 +33,12 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col justify-between items-center p-24 min-h-screen">
-      <div>home page</div>
+    <main className="justify-between items-center min-h-screen">
+      <div>
+        <div className="grid">
+          {/* <Image src="/EffeilDark.JPG" alt="Logo" width={700} height={140} /> */}
+        </div>
+      </div>
     </main>
   );
 }
