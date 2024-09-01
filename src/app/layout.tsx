@@ -10,7 +10,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
       <body
-        className="bg-gradient-to-tl from-sky-800 to-blue-950 bg-cover bg-center h-screen overflow-hidden"
+        className="bg-[url('/mesh-gradient.png')] bg-backgronud bg-cover bg-center h-screen overflow-hidden"
       >
 
         <main>{children}</main>

@@ -25,10 +25,10 @@ export const NavBar: React.FC<{}> = ({ }) => {
         >
 
 
-            <NavButton text="home" href="/" />
-            <NavButton text="about" href="/about" />
-            <NavButton text="project" href="/project" />
-            <NavButton text="contact" href="/contact" />
+            <NavButton text="home" href="/photography" />
+            <NavButton text="about" href="/about" disable />
+            <NavButton text="project" href="/project" disable />
+            <NavButton text="contact" href="/contact" disable />
         </motion.div>
         <motion.div
 
