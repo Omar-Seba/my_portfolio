@@ -1,15 +1,13 @@
 'use client'
-import React from "react";
 import { motion } from 'framer-motion';
 import Link from "next/link";
 
 export default function App() {
   return (
-    <main className="grid grid-cols-2 h-screen">
+    <div className="grid grid-cols-2 h-screen">
       <motion.div
         className="relative flex justify-center items-center bg-opacity-50 bg-cover bg-center h-full"
-        initial={{
-          backgroundImage: "url('')",  // Initially no background
+        animate={{
           backgroundSize: "100%",
           opacity: 1,  // Ensure the title is always visible
           x: 0
@@ -28,8 +26,7 @@ export default function App() {
       <Link href="/photography">
         <motion.div
           className="relative flex justify-center items-center bg-opacity-50 bg-cover bg-center h-full"
-          initial={{
-            backgroundImage: "url('')",  // Initially no background
+          animate={{
             backgroundSize: "100%",
             opacity: 1,  // Ensure the title is always visible
             x: 0
@@ -51,6 +48,6 @@ export default function App() {
           </div>
         </motion.div>
       </Link>
-    </main>
+    </div>
   );
 }
