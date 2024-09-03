@@ -10,9 +10,7 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
-      <body
-        className="bg-[url('/mesh-gradient.png')] bg-backgronud bg-cover bg-center h-screen overflow-hidden"
-      >
+      <body>
         {children}
         <Analytics />
       </body>

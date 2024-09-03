@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function App() {
   return (
-    <div className="grid grid-cols-2 h-screen">
+    <div className="grid grid-cols-2 bg-[url('/mesh-gradient.png')] bg-backgronud bg-cover bg-center h-screen overflow-hidden">
       <motion.div
         className="relative flex justify-center items-center bg-opacity-50 bg-cover bg-center h-full"
         animate={{
-          backgroundSize: "100%",
+          background: 'transparent',
           opacity: 1,  // Ensure the title is always visible
           x: 0
         }}
@@ -26,6 +26,10 @@ export default function App() {
       <Link href="/photography">
         <motion.div
           className="relative flex justify-center items-center bg-opacity-50 bg-cover bg-center h-full"
+          initial={{
+            opacity: 0,
+
+          }}
           animate={{
             backgroundSize: "100%",
             opacity: 1,  // Ensure the title is always visible
