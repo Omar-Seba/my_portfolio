@@ -43,6 +43,7 @@ export default function App() {
             <span onMouseEnter={() => {
               setIsHovered(true)
             }}
+
               onMouseLeave={() => {
                 setIsHovered(false)
               }}
@@ -70,23 +71,21 @@ export default function App() {
                 setIsHovered(false)
               }}
             >
-              <span className="relative flex"
+              <motion.span className="relative flex"
+                whileHover={{
+                  scale: 1.1,
+                  transition: {
+                    duration: 0.5
+                  }
+                }}
               >
                 Photographer
-                <span className="absolute flex blur"
-                >
+                <span className="absolute flex blur">
                   Photographer
                 </span>
-              </span>
-
-
+              </motion.span>
             </span>
-            {/* <h1
-              className="relative top-0 flex justify-center items-center bg-clip-text bg-gradient-to-r from-blue-500 via-teal-500 to-pink-500 py-4 w-fit h-auto font-extrabold text-6xl text-center text-transparent select-auto">
-              This is example of glowing text
-            </h1> */}
           </div>
-          {/* </motion.div> */}
         </Link>
       </div>
     </div>

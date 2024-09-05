@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="bg-slate-900 px-5 md:px-52 pt-6 h-screen font-bold font-Space_Grotesk overflow-hidden">
+
+          <header className="flex justify-center bg-slate-900">
+            <nav className="flex flex-grow justify-between items-center max-w-screen-xl h-24 text-white">
+              <div className="flex items-center h-[48px] font-bold text-3xl">
+                omarseba
+              </div>
+
+              <div className="flex gap-3">
+                <a href="https://www.linkedin.com/in/omar-seba/">
+                  <Image src="/social/icon-linkedin.svg" alt="linkedin" width={20} height={20} />
+                </a>
+                <a href="https://github.com/Omar-Seba">
+                  <Image src="/social/github/github-mark-white.svg" alt="github" width={20} height={20} />
+                </a>
+              </div>
+            </nav>
+          </header>
+          <main>{children}</main>
+          <footer>
+            <p>&copy; 2024 Mr.Slikes</p>
+          </footer>
+        </div>
+
+      </body>
     </html>
   );
 }
