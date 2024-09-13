@@ -1,6 +1,6 @@
 'use client'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { useState } from 'react';
 
 
@@ -22,72 +22,75 @@ export default function App() {
     <div
       onMouseMove={handleMouseMove}
       key={1}
-      className="relative bg-[url(/mesh-gradient.png)] bg-cover p-5 md:p-8 w-full h-screen overflow-hidden group"
+      className="relative w-full h-screen overflow-hidden group"
 
     >
-      <motion.div
-        className="absolute -inset-px opacity-0 group-hover:opacity-100 rounded-3xl transition duration-300"
-        transition={{
-          type: "tween", ease: "backOut"
-        }}
-        style={{
-          background: useMotionTemplate`radial-gradient(${size}px circle at ${mouseX}px ${mouseY}px, rgb(1 136 255 / 0.15) 0%, transparent 80%)`,
-          transition: 'type: "tween", ease: "backOut", duration: 0.5'
-        }}
-      />
-      <div className='grid grid-cols-2 h-screen'>
+      <div className='relative grid grid-cols-2 w-full h-screen'>
 
         <Link href="/development">
-
-          <div className="flex justify-center items-center w-full h-full">
-            <span onMouseEnter={() => {
+          <motion.div
+            className='flex bg-gradient-to-r from-fuchsia-900 via-purple-900 to-indigo-900 w-full h-full'
+          >
+            <motion.div onMouseEnter={() => {
               setIsHovered(true)
             }}
-
               onMouseLeave={() => {
                 setIsHovered(false)
               }}
-              className="relative flex font-mono text-xl md:text-4xl">
-              Developer
-              <span className='absolute flex blur'>
+              initial={{
+                backgroundImage: 'url(/code.jpg)',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+              }}
+              className="relative hover:grayscale-0 bg-cover bg-center m-2 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
+              {isHovered && <span
+                className="-bottom-12 left-2 absolute font-mono text-xl md:text-4xl">
                 Developer
+                <span className='left-0 absolute blur'>
+                  Developer
 
-              </span>
-            </span>
+                </span>
+              </span>}
 
-          </div>
-          {/* </motion.div> */}
+            </motion.div>
+          </motion.div>
         </Link>
         <Link href="/photography">
-          {/* <motion.div
-            className="relative flex justify-center items-center bg-opacity-50 bg-cover bg-center h-full"
-          > */}
-          <div className="flex justify-center items-center w-full h-full">
-            <span className="font-serif text-white text-xl md:text-4xl italic"
-              onMouseEnter={() => {
-                setIsHovered(true)
-              }}
+          <motion.div
+            className='flex bg-gradient-to-r from-indigo-900 via-blue-900 to-sky-900 w-full h-full'
+          >
+            <motion.div onMouseEnter={() => {
+              setIsHovered(true)
+            }}
               onMouseLeave={() => {
                 setIsHovered(false)
               }}
-            >
-              <motion.span className="relative flex"
-                whileHover={{
-                  scale: 1.1,
-                  transition: {
-                    duration: 0.5
-                  }
-                }}
-              >
-                Photographer
-                <span className="absolute flex blur">
+              initial={{
+                backgroundImage: 'url(/alpes.jpg)',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+              }}
+              className="relative hover:grayscale-0 bg-cover bg-center m-2 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
+
+              {isHovered &&
+                <motion.span
+                  whileHover={{
+                    scale: 1.1,
+                    transition: {
+                      duration: 0.5
+                    }
+                  }}
+                  className="-bottom-12 left-2 absolute font-serif text-xl md:text-4xl italic">
                   Photographer
-                </span>
-              </motion.span>
-            </span>
-          </div>
+                  <span className='left-0 absolute blur'>
+                    Photographer
+                  </span>
+                </motion.span>}
+            </motion.div>
+          </motion.div>
+          {/* </motion.div> */}
         </Link>
       </div>
-    </div>
+    </div >
   );
 }

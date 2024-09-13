@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "Omar SEBA's Portfolio",
@@ -9,12 +10,15 @@ export const metadata: Metadata = {
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <html lang="en">
-      <body>
-        {children}
-        <Analytics />
-      </body>
-    </html>
+    <ViewTransitions>
+
+      <html lang="en">
+        <body>
+          {children}
+          <Analytics />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 };
 

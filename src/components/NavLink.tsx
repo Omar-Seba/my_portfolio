@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import { motion } from "framer-motion";
-import { isatty } from 'tty';
 
 
 type NavLinkProps = {
