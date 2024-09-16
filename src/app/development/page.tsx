@@ -10,9 +10,12 @@ import splitext from "@/utils/splitext";
 export default function App() {
 
   const firstPhrase = splitext('Designing Interfaces.', "chars");
+  const secondDelay = firstPhrase.length * 0.05;
   const secondPhrase = splitext("Building experiences.", "chars");
+  const thirdDelay = secondDelay + (secondPhrase.length * 0.05)
   const thirdPhrase = splitext("I'm", "chars");
-  const fourthPhrase = splitext("Omar Seba.", "chars");
+  const fourthDelay = thirdDelay + (thirdPhrase.length * 0.05)
+  const fourthPhrase = splitext("Omar SEBA.", "chars");
 
 
   return (
@@ -27,37 +30,34 @@ export default function App() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: index * 0.05 }}
-                  className="pb-1 font-bold text-4xl text-left md:text-5xl">{line}</motion.span>
+                  className="pb-1 font-bold text-4xl text-left lg:text-5xl">{line}</motion.span>
               ))}
               <br />
               {secondPhrase.map((line, index) => (
                 <motion.span key={index}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="pb-1 font-bold text-4xl text-left md:text-5xl">{line}</motion.span>
+                  transition={{ delay: secondDelay + index * 0.05 }}
+                  className="pb-1 font-bold text-4xl text-left lg:text-5xl">{line}</motion.span>
               ))}
               <br />
               {thirdPhrase.map((line, index) => (
                 <motion.span key={index}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="pb-1 font-bold text-4xl text-left md:text-5xl">{line}</motion.span>
+                  transition={{ delay: thirdDelay + index * 0.05 }}
+                  className="pb-1 font-bold text-4xl text-left lg:text-5xl">{line}</motion.span>
               ))}
               <span className="pl-2">
                 {fourthPhrase.map((line, index) => (
                   <motion.span key={index}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="pb-1 font-bold text-4xl text-green-200 text-left md:text-5xl">{line}</motion.span>
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: fourthDelay + index * 0.05 }}
+                    className="inline-block pb-1 font-bold text-4xl text-green-200 text-left lg:text-5xl">{line}</motion.span>
                 ))}
               </span>
             </span>
-            {/* <h1 className="relative flex font-bold text-4xl text-left md:text-5xl">{"I'm"}
-              <span className="pl-2 text-green-200">Omar Seba</span>.
-            </h1> */}
           </span>
           <motion.button className="pt-20 text-2xl underline underline-offset-4 decoration-green-300" initial={{ scale: 1 }} whileHover={
             {
