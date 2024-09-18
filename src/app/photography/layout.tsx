@@ -14,7 +14,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
       <body
-        className="bg-cover bg-center h-screen overflow-hidden"
+        className="bg-cover bg-center w-full h-screen overflow-hidden"
         style={{ backgroundImage: "url('/effeil_wide.png')" }}
       >
         <header className="flex justify-center">

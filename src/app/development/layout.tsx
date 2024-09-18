@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import Image from "next/image";
+import splitext from "@/utils/splitext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-slate-900 px-5 md:px-52 pt-6 h-screen font-bold font-Space_Grotesk overflow-hidden">
+        <div className="bg-slate-900 pt-6 w-full h-screen font-bold font-Space_Grotesk overflow-hidden">
 
-          <header className="flex justify-center bg-slate-900">
+          <header className="flex justify-center px-5 lg:px-52">
             <nav className="flex flex-grow justify-between items-center max-w-screen-xl h-24 text-white">
               <div className="flex items-center h-[48px] font-bold text-3xl">
-                omarseba
+                {splitext("omarseba", "chars").map((char, index) => {
+                  return (
+                    <span key={index} className={char === 's' || char === 'o' ? "text-green-200" : ""} >{char}</span>
+                  )
+                })}
               </div>
 
               <div className="flex gap-3">
@@ -38,7 +43,18 @@ export default function RootLayout({
           </header>
           <main>{children}</main>
           <footer>
-            <p>&copy; 2024 Mr.Slikes</p>
+            <hr className="border-1 border-violet-50 mx-auto my-10 w-2/3" />
+            <div className="mx-auto px-4 sm:px-6 md:px-8 divide-violet-50 max-w-5xl xl:max-w-5xl">
+              <div className="flex flex-row-reverse bg-top pt-5 pb-4">
+
+                <a
+                  href="/"
+                  className="font-semibold text-gray-200 text-md hover:text-white hover:text-deep-purple-accent-400 tracking-tight transition-colors duration-300"
+                >
+                  © 2024 OmarSEBA
+                </a>
+              </div>
+            </div>
           </footer>
         </div>
 

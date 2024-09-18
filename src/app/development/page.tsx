@@ -1,13 +1,16 @@
 import { HeroSection } from "@/components/development/HeroSection";
+import { MeSection } from "@/components/development/MeSection";
 
 
 export default function App() {
 
 
   return (
-    <main className="flex flex-col justify-between items-center pt-20 min-h-screen">
-      <div className="font-Space_Grotesk">
+    <main className="flex flex-col items-center w-full">
+      <div className="scroll-snap-mandatory scroll-snap-y w-full h-screen font-Space_Grotesk overflow-y-scroll no-scrollbar">
         <HeroSection />
+        {/* <MeSection />
+        <HeroSection /> */}
       </div>
     </main>
   );
