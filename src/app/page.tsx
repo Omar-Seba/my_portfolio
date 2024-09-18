@@ -29,7 +29,7 @@ export default function App() {
 
         <Link href="/development">
           <motion.div
-            className='flex bg-gradient-to-r from-fuchsia-950 via-purple-950 to-indigo-950 w-full h-full'
+            className='flex bg-indigo-950 w-full h-full'
           >
             <motion.div onMouseEnter={() => {
               setIsHovered(true)
@@ -42,7 +42,7 @@ export default function App() {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
               }}
-              className="relative hover:grayscale-0 lg:block hidden bg-cover bg-center m-2 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
+              className="relative hover:grayscale-0 lg:block hidden bg-cover bg-center m-8 mr-4 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
               {isHovered && <span
                 className="-bottom-12 left-2 absolute font-mono text-xl lg:text-4xl">
                 Developer
@@ -69,7 +69,7 @@ export default function App() {
         </Link>
         <Link href="/photography">
           <motion.div
-            className='flex bg-gradient-to-r from-indigo-950 via-blue-950 to-sky-950 w-full h-full'
+            className='flex bg-indigo-950 w-full h-full'
           >
             <motion.div onMouseEnter={() => {
               setIsHovered(true)
@@ -82,7 +82,7 @@ export default function App() {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
               }}
-              className="relative hover:grayscale-0 lg:block hidden bg-cover bg-center m-2 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
+              className="relative hover:grayscale-0 lg:block hidden bg-cover bg-center m-8 hover:mb-[4rem] ml-4 w-full duration-300 ease-in grayscale">
 
               {isHovered &&
                 <motion.span
@@ -109,7 +109,6 @@ export default function App() {
               <div className="absolute inset-0 bg-[url('/alpes.jpg')] bg-cover bg-center opacity-25"></div>
             </motion.div>
           </motion.div>
-          {/* </motion.div> */}
         </Link>
       </div>
     </div >

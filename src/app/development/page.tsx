@@ -6,11 +6,10 @@ export default function App() {
 
 
   return (
-    <main className="flex flex-col items-center w-full">
-      <div className="scroll-snap-mandatory scroll-snap-y w-full h-screen font-Space_Grotesk overflow-y-scroll no-scrollbar">
+    <main className="">
+      <div className="scroll-snap-mandatory snap-y w-full overflow-y-scroll no-scrollbar scroll-smooth">
         <HeroSection />
-        {/* <MeSection />
-        <HeroSection /> */}
+        <MeSection />
       </div>
     </main>
   );

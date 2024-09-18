@@ -21,8 +21,8 @@ export const HeroSection = () => {
     useEffect(() => { }, [scope, animate]);
 
     return (
-        <section className="flex flex-col justify-center items-center gap-1 pt-36 h-screen text-4xl lg:text-6xl">
-            <span className="flex flex-col items-center gap-0.5 w-2/3">
+        <section className="flex flex-col snap-center justify-center items-center gap-1 py-36 h-fit text-4xl lg:text-6xl">
+            <span className="flex flex-col items-center gap-0.5 ">
                 <div className="">
                     <span>
                         {firstPhrase.map((char, index) => (
