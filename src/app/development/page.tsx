@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <main className="">
-      <div className="scroll-snap-mandatory snap-y w-full overflow-y-scroll no-scrollbar scroll-smooth">
+      <div className="scroll-snap-mandatory text-slate-100 snap-y w-full overflow-y-scroll no-scrollbar scroll-smooth">
         <HeroSection />
         <MeSection />
       </div>

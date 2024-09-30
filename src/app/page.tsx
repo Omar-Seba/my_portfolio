@@ -25,7 +25,7 @@ export default function App() {
       className="relative w-full h-screen overflow-hidden group"
 
     >
-      <div className='relative grid grid-cols-1 lg:grid-cols-2 w-full h-screen'>
+      <div className='relative grid grid-cols-1 lg:grid-cols-2 w-full h-screen text-slate-100'>
 
         <Link href="/development">
           <motion.div

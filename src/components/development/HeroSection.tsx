@@ -21,7 +21,7 @@ export const HeroSection = () => {
     useEffect(() => { }, [scope, animate]);
 
     return (
-        <section className="flex flex-col snap-center h-dvh justify-center items-center gap-1 py-36 h-fit text-4xl lg:text-6xl">
+        <section className="flex flex-col snap-center h-dvh justify-center items-center gap-1 py-36 text-4xl lg:text-6xl">
             <span className="flex flex-col items-center gap-0.5 ">
                 <div className="">
                     <span>
