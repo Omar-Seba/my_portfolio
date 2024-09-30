@@ -3,7 +3,7 @@ import { delay, motion, useAnimate } from "framer-motion";
 import { Link } from "next-view-transitions";
 import splitext from "@/utils/splitext";
 import { use, useEffect } from "react";
-
+import Chevron from "@/assets/jsxIcons";
 
 
 
@@ -21,7 +21,7 @@ export const HeroSection = () => {
     useEffect(() => { }, [scope, animate]);
 
     return (
-        <section className="flex flex-col snap-center justify-center items-center gap-1 py-36 h-fit text-4xl lg:text-6xl">
+        <section className="flex flex-col snap-center h-dvh justify-center items-center gap-1 py-36 h-fit text-4xl lg:text-6xl">
             <span className="flex flex-col items-center gap-0.5 ">
                 <div className="">
                     <span>
@@ -83,14 +83,14 @@ export const HeroSection = () => {
                             width: ['1rem', '4rem', '6rem', '8rem', '11rem', '13rem', '16rem'],
                             x: ['-13rem', '-11rem', '-8rem', '-6rem', '-4rem', '0rem']
                         },
-                            { duration: 0.2 },)
+                            { duration: 0.4 },)
                     }}
                     onMouseLeave={() => {
                         animate(scope.current, {
                             opacity: 0,
                             width: ['16rem', '13rem', '11rem', '8rem', '6rem', '4rem', '1rem'],
                             x: ['0rem', '4rem', '6rem', '8rem', '11rem', '13rem', '16rem'],
-                        }, { duration: 0.5 })
+                        }, { duration: 0.1 })
                     }}
                     className="relative"
                     href="https://drive.google.com/file/d/1oxqGlr5wB361SV3CEu6PtujAS2qiIzl5/view?usp=sharing">
@@ -100,9 +100,49 @@ export const HeroSection = () => {
                     ref={scope}
                     initial={{ opacity: 1, scale: 0.5 }}
                     animate={{ opacity: 0, scale: 1 }}
-                    className="border-green-200 bg-green-200 w-44 lg:w-64 h-1"
+                    className="border-green-200 bg-green-200 hidden lg:block lg:w-64 h-1"
+                />
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: fourthDelay + fourthPhrase.length * 0.04 + 0.6, duration: 0.6 }}
+                    className="border-green-200 bg-green-200 w-44 h-0.5 lg:hidden"
                 >
 
+                </motion.div>
+            </motion.button>
+            <motion.button
+                onClick={() => {
+                    const element = document.getElementById('my-stack');
+                    element?.scrollIntoView({
+                        behavior: 'smooth',
+                    });
+                }}
+                initial={{ opacity: 0 }} // Initial opacity to 0
+                animate={{ opacity: 1 }} // First, fade in
+                transition={{ delay: fourthDelay + fourthPhrase.length * 0.04 }} // Delayed fade-in
+                onAnimationComplete={() => {
+                    // Trigger the bounce animation once opacity is fully transitioned
+                    document.getElementById('bouncy-stack')?.setAttribute('style', 'display: flex');
+                }}
+            >
+                <motion.div
+                    id="bouncy-stack"
+                    className="flex flex-col items-center"
+                    style={{ display: 'none' }}
+                    initial={{ y: 0 }}
+                    animate={{ y: [0, 5, 0] }} // Infinite bounce
+                    transition={{
+                        ease: 'easeOut',
+                        repeat: Infinity,
+                        repeatType: 'mirror',
+                        duration: 1,
+                    }}
+                >
+                    <div className="text-xl">my stack</div>
+                    <div className="rotate-90 stroke-green-200 stroke-2">
+                        <Chevron />
+                    </div>
                 </motion.div>
             </motion.button>
         </section>
