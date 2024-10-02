@@ -21,7 +21,7 @@ export const HeroSection = () => {
     useEffect(() => { }, [scope, animate]);
 
     return (
-        <section className="flex flex-col snap-center h-dvh justify-center px-6 lg:px-0 items-center gap-1 py-36 text-4xl lg:text-6xl">
+        <section className="flex snap-normal flex-col snap-center h-screenWithoutNav justify-between px-6 lg:px-0 items-center gap-1 pt-36  text-4xl lg:text-6xl">
             <span className="flex flex-col items-center justify-center gap-0.5 ">
                 <div className="">
                     <span>
@@ -70,7 +70,7 @@ export const HeroSection = () => {
                 </div>
             </span>
             <motion.button
-                className="flex flex-col justify-start items-center pt-36 w-full h-full text-2xl lg:text-4xl underline-offset-4"
+                className="flex flex-col justify-start items-center py-20 lg:pt-36 w-full  text-2xl lg:text-4xl underline-offset-4"
                 initial={{ scale: 0.5, opacity: 0, y: -10 }}
                 transition={{ delay: fourthDelay + fourthPhrase.length * 0.04, duration: 0.6 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -83,7 +83,7 @@ export const HeroSection = () => {
                             width: ['1rem', '4rem', '6rem', '8rem', '11rem', '13rem', '16rem'],
                             x: ['-13rem', '-11rem', '-8rem', '-6rem', '-4rem', '0rem']
                         },
-                            { duration: 0.4 },)
+                            { duration: 0.2 },)
                     }}
                     onMouseLeave={() => {
                         animate(scope.current, {
@@ -112,10 +112,12 @@ export const HeroSection = () => {
                 </motion.div>
             </motion.button>
             <motion.button
+                className="pb-20"
                 onClick={() => {
                     const element = document.getElementById('my-stack');
                     element?.scrollIntoView({
                         behavior: 'smooth',
+                        block: 'end',
                     });
                 }}
                 initial={{ opacity: 0 }} // Initial opacity to 0
