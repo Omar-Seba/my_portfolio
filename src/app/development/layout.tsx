@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Image from "next/image";
 import splitext from "@/utils/splitext";
+import { space_grotesk } from "@/utils/fonts";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Omar SEBA - Development Portfolio",
@@ -18,8 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="bg-slate-900 w-full h-auto font-bold font-Space_Grotesk">
+      <body className={`${space_grotesk.className}`}>
+        <div className="bg-slate-900 w-full h-auto">
           <header className="px-4 lg:px-52 w-full">
             <nav className="flex flex-grow justify-between items-center h-24 text-white">
               <div className="flex items-center h-[48px] font-bold text-3xl">
