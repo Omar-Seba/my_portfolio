@@ -2,7 +2,7 @@
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { Link } from "next-view-transitions";
 import { useState } from 'react';
-
+import Image from 'next/image';
 
 export default function App() {
 
@@ -29,7 +29,7 @@ export default function App() {
 
         <Link href="/development">
           <motion.div
-            className='flex bg-indigo-950 w-full h-full'
+            className='flex bg-slate-900 w-full h-full'
           >
             <motion.div onMouseEnter={() => {
               setIsHovered(true)
@@ -37,12 +37,14 @@ export default function App() {
               onMouseLeave={() => {
                 setIsHovered(false)
               }}
-              initial={{
-                backgroundImage: 'url(/code.jpg)',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-              }}
-              className="relative hover:grayscale-0 lg:block hidden bg-cover bg-center m-8 mr-4 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
+              className="relative hover:grayscale-0 lg:block hidden m-8 mr-4 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
+              <Image
+                src='/code.jpg'
+                layout='fill'
+                objectFit='cover'
+                alt='code'
+                priority
+              />
               {isHovered && <span
                 className="-bottom-12 left-2 absolute font-mono text-xl lg:text-4xl">
                 Developer
@@ -55,6 +57,13 @@ export default function App() {
             </motion.div>
             {/* modible version */}
             <motion.div className="relative flex justify-center items-center lg:hidden bg-cover bg-center m-2 w-full duration-300 ease-in">
+              <Image
+                src='/code.jpg'
+                layout='fill'
+                objectFit='cover'
+                alt='code'
+                priority
+              />
               <motion.span className="relative z-10 font-mono text-xl">
                 Developer
                 <span className='left-0 absolute blur'>
@@ -63,13 +72,12 @@ export default function App() {
                 </span>
               </motion.span>
 
-              <div className="absolute inset-0 bg-[url('/code.jpg')] bg-cover bg-center opacity-25"></div>
             </motion.div>
           </motion.div>
         </Link>
         <Link href="/photography">
           <motion.div
-            className='flex bg-indigo-950 w-full h-full'
+            className='flex bg-slate-900 w-full h-full'
           >
             <motion.div onMouseEnter={() => {
               setIsHovered(true)
@@ -77,13 +85,19 @@ export default function App() {
               onMouseLeave={() => {
                 setIsHovered(false)
               }}
-              initial={{
-                backgroundImage: 'url(/alpes.jpg)',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-              }}
-              className="relative hover:grayscale-0 lg:block hidden bg-cover bg-center m-8 hover:mb-[4rem] ml-4 w-full duration-300 ease-in grayscale">
-
+              // initial={{
+              //   backgroundImage: 'url(/alpes.jpg)',
+              //   backgroundSize: 'cover',
+              //   backgroundRepeat: 'no-repeat',
+              // }}
+              className="relative hover:grayscale-0 lg:block hidden m-8 hover:mb-[4rem] ml-4 w-full duration-300 ease-in grayscale">
+              <Image
+                src='/alpes.jpg'
+                layout='fill'
+                objectFit='cover'
+                alt='code'
+                priority
+              />
               {isHovered &&
                 <motion.span
                   whileHover={{
@@ -100,13 +114,19 @@ export default function App() {
                 </motion.span>}
             </motion.div>
             {/* modible version */}
-            <motion.div className="relative flex justify-center items-center lg:hidden bg-cover bg-center m-2 w-full duration-300 ease-in">
+            <motion.div className="relative flex justify-center items-center lg:hidden m-2 w-full duration-300 ease-in">
+              <Image
+                src='/alpes.jpg'
+                layout='fill'
+                objectFit='cover'
+                alt='code'
+                priority
+              />
               <motion.span className="relative z-10 font-serif text-xl italic">
                 Photographer
                 <span className="left-0 absolute blur">Photographer</span>
               </motion.span>
 
-              <div className="absolute inset-0 bg-[url('/alpes.jpg')] bg-cover bg-center opacity-25"></div>
             </motion.div>
           </motion.div>
         </Link>
