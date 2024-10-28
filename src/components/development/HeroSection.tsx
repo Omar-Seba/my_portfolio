@@ -93,7 +93,7 @@ export const HeroSection = () => {
                         }, { duration: 0.1 })
                     }}
                     className="relative"
-                    href="https://drive.google.com/file/d/1oxqGlr5wB361SV3CEu6PtujAS2qiIzl5/view?usp=sharing">
+                    href="https://drive.google.com/file/d/1FdPjprJsqlUqPDLzU6r2fhnB1c9mfoKS/view?usp=sharing ">
                     My experience
                 </Link>
                 <motion.div
