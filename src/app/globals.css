@@ -59,6 +59,26 @@ body {
     scrollbar-width: none; /* Firefox */
   }
 }
+/* styles/globals.css */
+
+.background--custom {
+  background: linear-gradient(90deg, #ee1bbf, #8662dc, #733397);
+  background-size: 300% 300%;
+  animation: gradient 4s alternate infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
 
 * {
   /* outline: 1px solid red; */

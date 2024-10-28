@@ -15,9 +15,9 @@ export default function App() {
   const bounceOnHover = (elt: string) => {
 
     animate([
-      [elt, { y: 0, scale: 1 }, { ease: easeOutBack }],
-      [elt, { y: -20, scale: 0.95 }, { ease: easeOutBack }],
-      [elt, { y: 0, scale: 1 }, { ease: easeOutBack, duration: 1 }]
+      [elt, { y: 0, scale: 1 }, { ease: easeOutBack, duration: 0.2 }],
+      [elt, { y: -20, scale: 0.95 }, { ease: easeOutBack, duration: 0.2 }],
+      [elt, { y: 0, scale: 1 }, { ease: easeOutBack, duration: 0.2 }]
     ]);
 
   }
@@ -42,8 +42,8 @@ export default function App() {
 
   return (
     <div className={`${passion_one.className}`}>
-      <div className='bg-slate-900 w-full h-lvh'>
-        <div ref={scope} className='flex flex-col justify-center gap-4 h-full text-slate-100 md:text-[167px] dev'>
+      <div className='w-full h-lvh background--custom'>
+        <div ref={scope} className='flex flex-col justify-center gap-20 h-full text-6xl text-slate-900 lg:text-[167px] dev'>
           <motion.div
             initial={{ x: 300 }}
             animate={{ x: 0, transition: { duration: 0.8, ease: easeOutBack } }}
