@@ -1,3 +1,4 @@
+import { Modak } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -9,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       height: {
-        'screenWithoutNav': 'calc(100vh - 96px)',
+        screenWithoutNav: "calc(100vh - 96px)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -18,6 +19,7 @@ const config: Config = {
       },
       fontFamily: {
         Space_Grotesk: ["Space Grotesk", "sans-serif"],
+        Modak: ["Modak", "cursive"],
       },
     },
   },

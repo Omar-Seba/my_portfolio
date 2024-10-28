@@ -28,7 +28,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-.effeilBG{
+.effeilBG {
   background-image: url("../assets/effeil_wide.png");
   background-size: cover;
   background-position: center;
@@ -53,9 +53,13 @@ body {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  
+
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+* {
+  /* outline: 1px solid red; */
 }

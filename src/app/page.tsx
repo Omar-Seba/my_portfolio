@@ -1,136 +1,75 @@
 'use client'
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { easeIn, motion, useAnimate, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { Link } from "next-view-transitions";
 import { useState } from 'react';
-import Image from 'next/image';
+import { modak, passion_one } from '@/utils/fonts';
+import { easeOutBack, easeOutQuint } from '@/utils/easings';
+import { useRouter } from 'next/navigation';
 
 export default function App() {
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const size = isHovered ? 200 : 100
-  const handleMouseMove = ({ clientX, clientY, currentTarget }: any) => {
-    // current target might be null
-    const bounds = currentTarget.getBoundingClientRect();
 
-    mouseX.set(clientX - bounds.left);
-    mouseY.set(clientY - bounds.top);
+  const [scope, animate] = useAnimate();
+  const router = useRouter();
+
+  const bounceOnHover = (elt: string) => {
+
+    animate([
+      [elt, { y: 0, scale: 1 }, { ease: easeOutBack }],
+      [elt, { y: -20, scale: 0.95 }, { ease: easeOutBack }],
+      [elt, { y: 0, scale: 1 }, { ease: easeOutBack, duration: 1 }]
+    ]);
+
+  }
+
+  const clickTransistion = async (elt: string) => {
+    await Promise.all([
+      animate(
+        elt === '.photo' ? '.dev' : '.photo',
+        { scale: 0.5, x: elt === '.photo' ? -10000 : 10000 },
+        { ease: easeOutBack, duration: 2 }
+      ),
+      animate(
+        elt,
+        { y: 0, x: elt === '.photo' ? 10000 : -10000, scale: 5 },
+        { duration: 2 }
+      )
+    ]);
+
+
+    router.push(elt === '.photo' ? '/photography' : '/development')
   }
 
   return (
-    <div
-      onMouseMove={handleMouseMove}
-      key={1}
-      className="relative w-full h-screen overflow-hidden group"
-
-    >
-      <div className='relative grid grid-cols-1 lg:grid-cols-2 w-full h-screen text-slate-100'>
-
-        <Link href="/development">
+    <div className={`${passion_one.className}`}>
+      <div className='bg-slate-900 w-full h-lvh'>
+        <div ref={scope} className='flex flex-col justify-center gap-4 h-full text-slate-100 md:text-[167px] dev'>
           <motion.div
-            className='flex bg-slate-900 w-full h-full'
-          >
-            <motion.div onMouseEnter={() => {
-              setIsHovered(true)
+            initial={{ x: 300 }}
+            animate={{ x: 0, transition: { duration: 0.8, ease: easeOutBack } }}
+            onMouseEnter={() => {
+              bounceOnHover('.dev')
             }}
-              onMouseLeave={() => {
-                setIsHovered(false)
-              }}
-              className="relative hover:grayscale-0 lg:block hidden m-8 mr-4 hover:mb-[4rem] w-full duration-300 ease-in grayscale">
-              <Image
-                src='/code.jpg'
-                layout='fill'
-                objectFit='cover'
-                alt='code'
-                priority
-              />
-              {isHovered && <span
-                className="-bottom-12 left-2 absolute font-mono text-xl lg:text-4xl">
-                Developer
-                <span className='left-0 absolute blur'>
-                  Developer
-
-                </span>
-              </span>}
-
-            </motion.div>
-            {/* modible version */}
-            <motion.div className="relative flex justify-center items-center lg:hidden bg-cover bg-center m-2 w-full duration-300 ease-in">
-              <Image
-                src='/code.jpg'
-                layout='fill'
-                objectFit='cover'
-                alt='code'
-                priority
-              />
-              <motion.span className="relative z-10 font-mono text-xl">
-                Developer
-                <span className='left-0 absolute blur'>
-                  Developer
-
-                </span>
-              </motion.span>
-
-            </motion.div>
+            onClick={() => {
+              clickTransistion('.dev')
+            }}
+            className='flex justify-end pr-10 w-full cursor-pointer dev'>
+            DEVELOPMENT
           </motion.div>
-        </Link>
-        <Link href="/photography">
           <motion.div
-            className='flex bg-slate-900 w-full h-full'
-          >
-            <motion.div onMouseEnter={() => {
-              setIsHovered(true)
+            initial={{ x: -300 }}
+            animate={{ x: 0, transition: { duration: 0.8, ease: easeOutBack } }}
+            onMouseEnter={() => {
+              bounceOnHover('.photo')
             }}
-              onMouseLeave={() => {
-                setIsHovered(false)
-              }}
-              // initial={{
-              //   backgroundImage: 'url(/alpes.jpg)',
-              //   backgroundSize: 'cover',
-              //   backgroundRepeat: 'no-repeat',
-              // }}
-              className="relative hover:grayscale-0 lg:block hidden m-8 hover:mb-[4rem] ml-4 w-full duration-300 ease-in grayscale">
-              <Image
-                src='/alpes.jpg'
-                layout='fill'
-                objectFit='cover'
-                alt='code'
-                priority
-              />
-              {isHovered &&
-                <motion.span
-                  whileHover={{
-                    scale: 1.1,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }}
-                  className="-bottom-12 left-2 lg:absolute flex font-serif text-xl lg:text-4xl italic">
-                  Photographer
-                  <span className='left-0 lg:absolute flex blur'>
-                    Photographer
-                  </span>
-                </motion.span>}
-            </motion.div>
-            {/* modible version */}
-            <motion.div className="relative flex justify-center items-center lg:hidden m-2 w-full duration-300 ease-in">
-              <Image
-                src='/alpes.jpg'
-                layout='fill'
-                objectFit='cover'
-                alt='code'
-                priority
-              />
-              <motion.span className="relative z-10 font-serif text-xl italic">
-                Photographer
-                <span className="left-0 absolute blur">Photographer</span>
-              </motion.span>
-
-            </motion.div>
+            onClick={() => {
+              clickTransistion('.photo')
+            }}
+            className='flex justify-start pl-10 w-full cursor-pointer photo'>
+            PHOTOGRAPHY
           </motion.div>
-        </Link>
+        </div>
       </div>
-    </div >
+    </div>
   );
 }
