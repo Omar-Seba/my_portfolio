@@ -32,7 +32,7 @@ export const MeSection = () => {
             initial={{ opacity: 0, x: -100 }}
             className="flex flex-col justify-center items-start gap-10 bg-emerald-300 opacity-75 px-4 xl:px-40 py-36 snap-center w-full h-dvh font-bold text-slate-950 lg:text-6xl">
             <span>
-                ReacJS
+                NextJS 15 - ReacJS 19
             </span>
             <span>
                 Typescript
@@ -42,6 +42,9 @@ export const MeSection = () => {
             </span>
             <span>
                 Figma
+            </span>
+            <span>
+                AWS DynamoDB - MongoDB 
             </span>
         </motion.section>
     )
